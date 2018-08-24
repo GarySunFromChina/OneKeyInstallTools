@@ -5,12 +5,12 @@ systemctl enable smb nmb winbind
 
 #sed -i  '/workgroup/{/wins/!s/$/ wins/}' /etc/nsswitch.conf
 
-group=$0
-namd=$1
+group=$1
+namd=$2
 
-sed -i '/workgroup/{/wins/!s/=.*/= ${group}/p}' /etc/samba/smb.conf 
+sed -i '/workgroup/{/wins/!s/=.*/= \$group/p}' /etc/samba/smb.conf 
 
-sed -i '/workgroup/a\        netbios name = ${name}' /etc/samba/smb.conf 
+sed -i '/workgroup/a\        netbios name = $name' /etc/samba/smb.conf 
 
 sed -i '/workgroup/a\        min procotol = SMB2' /etc/samba/smb.conf 
 
