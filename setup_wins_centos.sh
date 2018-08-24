@@ -6,16 +6,20 @@ systemctl enable smb nmb winbind
 group=$1
 name=$2
 
-if [$group==""];then
+if [ $group=="" ];then
     echo "please input workgroup[default:WORKGROUP]:"
     read group
 fi
 
-if [$name==""];then
+if [ $name=="" ];then
     echo "please input hostname[default:CentOS]:"
     read name
 fi
 
+echo "================================================"
+echo "* workgroup = "$group                       
+echo "* netbios name  = "$name
+echo "================================================"
 
 
 sed -i '/workgroup/{s/=.*/= '$group'/}' /etc/samba/smb.conf 
