@@ -1,6 +1,7 @@
 yum install -y samba samba-winbind
 
-systemctl enable smb winbind
+#nmb netbios name服务   
+systemctl enable smb nmb winbind
 
 #sed -i  '/workgroup/{/wins/!s/$/ wins/}' /etc/nsswitch.conf
 
