@@ -7,6 +7,9 @@ systemctl enable smb nmb winbind
 
 sed -i '/workgroup/{/wins/!s/=.*/= $1/p}' /etc/samba/smb.conf 
 
+sed -i '/workgroup/netbios name = $2' /etc/samba/smb.conf 
+
+
 sed -i  '/^hosts:/{/wins/!s/$/ wins/}' /etc/nsswitch.conf
 
 
