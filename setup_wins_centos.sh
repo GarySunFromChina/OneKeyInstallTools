@@ -10,7 +10,7 @@ sed -i '/workgroup/{s/=.*/= '$group'/}' /etc/samba/smb.conf
 
 sed -i '/workgroup/a\        netbios name = '$name'' /etc/samba/smb.conf 
 
-sed -i '/workgroup/a\        min procotol = SMB2' /etc/samba/smb.conf 
+sed -i '/netbios name/a\        min procotol = SMB2' /etc/samba/smb.conf 
 
 sed -i  '/^hosts:/{/wins/!s/files /files wins /}' /etc/nsswitch.conf
 
