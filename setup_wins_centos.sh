@@ -4,7 +4,7 @@ yum install -y samba samba-winbind
 systemctl enable smb nmb winbind
 
 group=$1
-namd=$2
+name=$2
 
 sed -i '/workgroup/{s/=.*/= '$group'/}' /etc/samba/smb.conf 
 
