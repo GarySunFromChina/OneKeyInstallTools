@@ -13,7 +13,7 @@ sed -i '/workgroup/a\        netbios name = "${1}"' /etc/samba/smb.conf
 
 sed -i '/workgroup/a\        min procotol = SMB2' /etc/samba/smb.conf 
 
-sed -i  '/^hosts:/{/wins/!s/files /files wins/}' /etc/nsswitch.conf
+sed -i  '/^hosts:/{/wins/!s/files /files wins /}' /etc/nsswitch.conf
 
 
 firewall-cmd --permanent --add-service=samba
