@@ -9,11 +9,17 @@ name=$2
 if [ $group=="" ];then
     echo "please input workgroup[default:WORKGROUP]:"
     read group
+    if [ $group=="" ];then
+        group="WORKGROUP"
+    fi
 fi
 
 if [ $name=="" ];then
     echo "please input hostname[default:CentOS]:"
     read name
+    if [ $name=="" ];then
+        name="CentOS"
+    fi
 fi
 
 echo "================================================"
